@@ -25,10 +25,10 @@ class TabList {
             nextKey = this.currentKey
         } else if (index == 0 && this.openTabs.length == 1) { //关闭第一项，并且没有其它打开的内容
             nextKey = "00"
-        } else if (index == 0 && this.openTabs.length > 1) { //关闭第一项，并且有其它打开的内容，默认值设置为下一项。
-            nextKey = this.openTabs[index + 1].key;
-        } else {
+        } else if (index == this.openTabs.length - 1 && this.openTabs.length > 1) { //关闭第一项，并且有其它打开的内容，默认值设置为下一项。
             nextKey = this.openTabs[index - 1].key;
+        } else {
+            nextKey = this.openTabs[index + 1].key
         }
 
         this.openTabs.splice(index, 1);
