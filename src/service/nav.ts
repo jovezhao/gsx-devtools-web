@@ -28,7 +28,6 @@ export class NavUtils {
         });
 
         const menu = menuList.getMenu(key)
-        console.log(menu);
 
         this.tabList.openTab({ key: menu?.key, title: menu?.title, icon: menu?.icon, closable: !menu?.fixed } as TabInfo)
     }
@@ -38,5 +37,13 @@ export class NavUtils {
         const nextKey = this.tabList.closeTab(key);
         //2. 跳转到下一个选项卡。
         this.to(nextKey);
+    }
+    closeAll() {
+        const nextKey = this.tabList.closeAll();
+        this.to(nextKey)
+    }
+    closeOther(){
+        const nextKey = this.tabList.closeOther();
+        this.to(nextKey)
     }
 }

@@ -1,5 +1,4 @@
 import { TabInfo } from "@/service/types";
-import { ActionContext } from "vuex";
 
 
 class TabList {
@@ -42,8 +41,13 @@ class TabList {
         // }
 
     }
-    closeAll() {
+    closeAll():string {
         this.openTabs.splice(0, this.openTabs.length);
+        return TabList.defaultKey;
+    }
+    closeOther():string{
+        this.openTabs.splice(0,this.openTabs.length);
+        return this.currentKey;
     }
     closeLeft() {
         const index = this.openTabs.findIndex(p => p.key == this.currentKey);
@@ -51,8 +55,9 @@ class TabList {
     }
     closeRight() {
         const index = this.openTabs.findIndex(p => p.key == this.currentKey);
-        this.openTabs.splice(index, this.openTabs.length - index);
+        this.openTabs.splice(index + 1, this.openTabs.length - index);
     }
+
 }
 
 const tabList = new TabList();

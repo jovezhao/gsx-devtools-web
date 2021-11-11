@@ -12,31 +12,31 @@
       :key="tabInfo.key"
       :closable="tabInfo.closable"
     >
-    <template #tab>
-     <span>
-        <!-- <user-outlined /> -->
-        <Iconfont v-if="tabInfo.icon" :type="tabInfo.icon" />
-        <span> {{ tabInfo.title }}</span>
-      </span>
-    </template>
+      <template #tab>
+        <span>
+          <!-- <user-outlined /> -->
+          <Iconfont v-if="tabInfo.icon" :type="tabInfo.icon" />
+          <span> {{ tabInfo.title }}</span>
+        </span>
+      </template>
     </a-tab-pane>
     <template #tabBarExtraContent>
       <a-dropdown>
         <template #overlay>
-          <a-menu>
-            <a-menu-item key="1">
+          <a-menu @click="onTabMenuItemClick">
+            <a-menu-item key="closeAll">
               <!-- <UserOutlined /> -->
               全部关闭
             </a-menu-item>
-            <a-menu-item key="2">
+            <a-menu-item key="closeOther">
               <!-- <UserOutlined /> -->
               关闭其他
             </a-menu-item>
-            <a-menu-item key="3">
+            <a-menu-item key="closeLeft">
               <!-- <UserOutlined /> -->
               关闭左侧选项
             </a-menu-item>
-            <a-menu-item key="4">
+            <a-menu-item key="closeRight">
               <!-- <UserOutlined /> -->
               关闭右侧选项
             </a-menu-item>
@@ -44,7 +44,7 @@
         </template>
         <a-button>
           标签选项
-          <!-- <DownOutlined /> -->
+          <DownOutlined />
         </a-button>
       </a-dropdown>
     </template>
@@ -55,17 +55,18 @@ import { NavUtils } from "@/service/nav";
 import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import { DownOutlined } from "@ant-design/icons-vue";
+import { MenuInfo } from "ant-design-vue/lib/menu/src/interface";
 
 export default defineComponent({
+  components: {
+    DownOutlined,
+  },
   setup() {
     const store = useStore();
     const router = useRouter();
     const nav: NavUtils = new NavUtils(store, router);
-
-    const tabList = nav.tabList;
-    //  computed(() => {
-    //   return nav.tabList;
-    // });
+    const tabList = nav.tabList
 
     const onEdit = (targetKey: string, action: string) => {
       if (action == "remove") {
@@ -75,10 +76,27 @@ export default defineComponent({
     const onChange = (activeKey: string) => {
       nav.to(activeKey);
     };
+    const onTabMenuItemClick = (menuInfo: MenuInfo) => {
+      switch (menuInfo.key) {
+        case "closeAll":
+          nav.closeAll();
+          break;
+        case "closeOther":
+          nav.closeOther();
+          break;
+        case "closeLeft":
+          nav.tabList.closeLeft();
+          break;
+        case "closeRight":
+          nav.tabList.closeRight();
+          break;
+      }
+    };
     return {
       tabList,
       onEdit,
       onChange,
+      onTabMenuItemClick,
     };
   },
 });

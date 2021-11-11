@@ -46,8 +46,8 @@ export default defineComponent({
   setup() {
     const moduleKey = ref("01");
 
-    PubSub.subscribe("moduleChanged", (message: string, value: Ref<string>) => {
-      moduleKey.value = value.value;
+    PubSub.subscribe("moduleChanged", (message: string, value: string) => {
+      moduleKey.value = value;
     });
 
     const menuTree = computed(() => {

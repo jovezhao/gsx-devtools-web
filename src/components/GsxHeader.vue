@@ -2,8 +2,8 @@
   <div class="logo" />
   <a-menu
     theme="dark"
-    @click="moduleChanged"
     mode="horizontal"
+    v-model:selectedKeys="current"
     :style="{ lineHeight: '64px' }"
   >
     <a-menu-item v-for="menu in moduleList" :key="menu.key">
@@ -26,24 +26,24 @@
 </style>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import PubSub from "pubsub-js";
 import { menuList } from "@/service/menu";
 
 export default defineComponent({
   setup() {
     const moduleList = menuList.getMoudleList();
-    const current = ref("01");
+    const current = ref(["01"]);
 
-    const moduleChanged = (args: { key: string }) => {
-      current.value = args.key;
-      PubSub.publish("moduleChanged", current);
+    const moduleChanged = (newValue: string[]) => {
+      PubSub.publish("moduleChanged", newValue[0]);
     };
+
+    watch(current, moduleChanged);
 
     return {
       moduleList,
-      moduleChanged,
-      current,
+      current
     };
   },
 });
