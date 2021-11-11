@@ -23,7 +23,7 @@ class TabList {
         if (key != this.currentKey) {
             nextKey = this.currentKey
         } else if (index == 0 && this.openTabs.length == 1) { //关闭第一项，并且没有其它打开的内容
-            nextKey = "00"
+            nextKey = TabList.defaultKey
         } else if (index == this.openTabs.length - 1 && this.openTabs.length > 1) { //关闭第一项，并且有其它打开的内容，默认值设置为下一项。
             nextKey = this.openTabs[index - 1].key;
         } else {
