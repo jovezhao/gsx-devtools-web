@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
-import router from './router'
-import store from './store'
+import router from './infrastructure/router'
+import store from '@/infrastructure/store';
+
 import Antd from "ant-design-vue";
 // import * as Icons from '@ant-design/icons-vue'
 import "ant-design-vue/dist/antd.css"

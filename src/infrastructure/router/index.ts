@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import GsxMain from '../views/GsxMain.vue'
-import GsxHome from '../views/GsxHome.vue'
-import GsxTest from '../views/GsxTest.vue'
+import GsxMain from '@/views/GsxMain.vue'
+import GsxHome from '@/views/GsxHome.vue'
+import GsxTest from '@/views/GsxTest.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -31,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/GsxLogin.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@/views/GsxLogin.vue')
   },
   {
     path: '/test',
@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/GsxTest.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@/views/GsxTest.vue')
   }
 ]
 
