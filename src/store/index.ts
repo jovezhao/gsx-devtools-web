@@ -1,7 +1,6 @@
-// import { MISCELLANEOUS_TYPES } from '@babel/types'
+import { menuModule } from './menuModule';
 import { createStore } from 'vuex'
-// import { moduleMenu } from '../service/menu'
-import { tabMoudle } from './tabs'
+import { tabMoudle } from './tabMoudle'
 
 
 export default createStore({
@@ -15,7 +14,7 @@ export default createStore({
 
   },
   modules: {
-    // menu: moduleMenu,
+    menu: menuModule,
     tabs: tabMoudle
   }
 })

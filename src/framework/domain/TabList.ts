@@ -1,7 +1,5 @@
-import { TabInfo } from "@/service/types";
 
-
-class TabList {
+export class TabList {
     static defaultKey: string = "00";
     openTabs: Array<TabInfo>;
     currentKey: string = TabList.defaultKey;
@@ -17,7 +15,7 @@ class TabList {
         this.currentKey = tabInfo.key;
 
     }
-    closeTab(key: string): string {
+    close(key: string): string {
         const index = this.openTabs.findIndex(p => p.key == key);
         let nextKey = ""
         if (key != this.currentKey) {
@@ -41,28 +39,26 @@ class TabList {
         // }
 
     }
-    closeAll():string {
-        this.openTabs.splice(0, this.openTabs.length);
-        return TabList.defaultKey;
+    closeAll(): string {
+        // this.openTabs.splice(0, this.openTabs.length);
+        this.closeOther();
+        return this.close(this.currentKey);
     }
-    closeOther():string{
-        this.openTabs.splice(0,this.openTabs.length);
-        return this.currentKey;
+    closeOther() {
+        // this.openTabs.splice(0, this.openTabs.length);
+        this.closeLeft();
+        this.closeRight();
+        // return this.currentKey;
     }
     closeLeft() {
         const index = this.openTabs.findIndex(p => p.key == this.currentKey);
-        this.openTabs.splice(0, index);
+        let remove = this.openTabs.splice(0, index);
+        this.openTabs.splice(0, 0, ...remove.filter(p => !p.closable))
     }
     closeRight() {
         const index = this.openTabs.findIndex(p => p.key == this.currentKey);
-        this.openTabs.splice(index + 1, this.openTabs.length - index);
+        let remove = this.openTabs.splice(index + 1, this.openTabs.length - index);
+        this.openTabs.push(...remove.filter(p => !p.closable))
     }
 
 }
-
-const tabList = new TabList();
-
-const tabMoudle = {
-    state: tabList
-}
-export { tabMoudle, TabList }

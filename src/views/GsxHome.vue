@@ -29,7 +29,7 @@
     Search
   </a-button>
 </template>
-<script>
+<script lang="ts">
 import { SearchOutlined } from '@ant-design/icons-vue';
 export default {
   components: {

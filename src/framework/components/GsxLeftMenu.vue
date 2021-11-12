@@ -37,30 +37,28 @@ import { ref, defineComponent, Ref, computed } from "vue";
 import PubSub from "pubsub-js";
 import { MenuInfo } from "ant-design-vue/lib/menu/src/interface";
 import { useRouter } from "vue-router";
-import { menuList } from "@/service/menu";
 import { useStore } from "vuex";
-import { TabInfo } from "@/service/types";
-import { NavUtils } from "@/service/nav";
+import { NavService } from "../service/NavService";
+import { MenuTreeList } from "../domain/MenuTreeList";
 
 export default defineComponent({
   setup() {
     const moduleKey = ref("01");
+    const router = useRouter();
+    const store = useStore();
+    const navUtils:NavService = new NavService(store, router);
 
     PubSub.subscribe("moduleChanged", (message: string, value: string) => {
       moduleKey.value = value;
     });
 
     const menuTree = computed(() => {
-      return menuList.getMenuTree(moduleKey.value);
+      return (store.state.menu as MenuTreeList).getMenuTree(moduleKey.value);
     });
-
-    const router = useRouter();
-    const store = useStore();
 
     const menuItemClick = (menu: MenuInfo) => {
       //根据key查询route获得name，title信息，并且加入tabs信息
 
-      const navUtils = new NavUtils(store, router);
       navUtils.to(menu.key.toLocaleString());
     };
 

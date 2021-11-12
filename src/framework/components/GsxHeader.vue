@@ -28,11 +28,11 @@
 <script lang="ts">
 import { defineComponent, ref, watch } from "vue";
 import PubSub from "pubsub-js";
-import { menuList } from "@/service/menu";
+import { useStore } from "vuex";
 
 export default defineComponent({
   setup() {
-    const moduleList = menuList.getMoudleList();
+    const moduleList = (useStore().state.menu as MenuTreeList).getMoudleList();
     const current = ref(["01"]);
 
     const moduleChanged = (newValue: string[]) => {
@@ -43,7 +43,7 @@ export default defineComponent({
 
     return {
       moduleList,
-      current
+      current,
     };
   },
 });

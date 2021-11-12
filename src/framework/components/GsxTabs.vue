@@ -51,12 +51,12 @@
   </a-tabs>
 </template>
 <script lang="ts">
-import { NavUtils } from "@/service/nav";
 import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { MenuInfo } from "ant-design-vue/lib/menu/src/interface";
+import { NavService } from "../service/NavService";
 
 export default defineComponent({
   components: {
@@ -65,7 +65,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const router = useRouter();
-    const nav: NavUtils = new NavUtils(store, router);
+    const nav: NavService = new NavService(store, router);
     const tabList = nav.tabList
 
     const onEdit = (targetKey: string, action: string) => {
@@ -85,10 +85,10 @@ export default defineComponent({
           nav.closeOther();
           break;
         case "closeLeft":
-          nav.tabList.closeLeft();
+          nav.closeLeft();
           break;
         case "closeRight":
-          nav.tabList.closeRight();
+          nav.closeRight();
           break;
       }
     };

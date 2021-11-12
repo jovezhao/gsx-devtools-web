@@ -20,7 +20,7 @@ const app = createApp(App)
   .use(router)
   .component("Iconfont", IconFont)
 
-console.log("1111",IconFont.name,IconFont);
+// console.log("1111",IconFont.name,IconFont);
 
 // for (const [key, val] of Object.entries(Icons)) {
 //   // console.log("@@@", key, val);

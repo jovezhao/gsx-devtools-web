@@ -1,7 +1,12 @@
 <template>
   <div>
     <a-modal visible="true" title="用户登录" @ok="handleOk" :closable="false">
-      <a-form name="custom-validation" layout="horizontal" :label-col="labelCol" :wrapper-col="wrapperCol">
+      <a-form
+        name="custom-validation"
+        layout="horizontal"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
+      >
         <a-form-item label="用户名" name="username">
           <a-input placeholder="请输入用户名..." />
         </a-form-item>
@@ -10,7 +15,13 @@
         </a-form-item>
       </a-form>
       <template #footer>
-        <a-button key="submit" type="primary" :loading="loading" @click="handleOk">登录</a-button>
+        <a-button
+          key="submit"
+          type="primary"
+          :loading="loading"
+          @click="handleOk"
+          >登录</a-button
+        >
       </template>
     </a-modal>
   </div>
@@ -31,7 +42,7 @@ export default defineComponent({
     };
 
     return {
-      labelCol: { style: { width: '150px' } ,span:8},
+      labelCol: { style: { width: "150px" }, span: 8 },
       wrapperCol: { span: 14 },
       loading,
       handleOk,

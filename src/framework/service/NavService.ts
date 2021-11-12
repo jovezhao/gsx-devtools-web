@@ -1,17 +1,18 @@
-import { TabInfo } from '@/service/types';
 import { Router } from "vue-router";
 import { Store } from "vuex";
-import { menuList } from "@/service/menu";
-import { TabList } from "@/store/tabs";
+import { MenuTreeList } from "../domain/MenuTreeList";
+import { TabList } from "../domain/TabList";
 
 
 
-export class NavUtils {
+ export class NavService {
     tabList: TabList;
     router: Router;
+    menuTreeList:MenuTreeList;
 
     constructor(store: Store<any>, router: Router) {
         this.tabList = store.state.tabs as TabList;
+        this.menuTreeList=store.state.menu as MenuTreeList;
         this.router = router
     }
     to(key: string) {
@@ -27,23 +28,29 @@ export class NavUtils {
             name: route?.name,
         });
 
-        const menu = menuList.getMenu(key)
+        const menu = this.menuTreeList.getMenu(key)
 
         this.tabList.openTab({ key: menu?.key, title: menu?.title, icon: menu?.icon, closable: !menu?.fixed } as TabInfo)
     }
     close(key: string) {
         // 关闭页面
         //1. 根据key获取关闭的选项卡位置获取下一个选项卡，并且移出当前选项卡
-        const nextKey = this.tabList.closeTab(key);
+        const nextKey = this.tabList.close(key);
         //2. 跳转到下一个选项卡。
         this.to(nextKey);
     }
     closeAll() {
-        const nextKey = this.tabList.closeAll();
-        this.to(nextKey)
+        this.tabList.closeAll();
+        // this.to(nextKey)
     }
     closeOther(){
-        const nextKey = this.tabList.closeOther();
-        this.to(nextKey)
+        this.tabList.closeOther();
+        // this.to(nextKey)
+    }
+    closeLeft(){
+        this.tabList.closeLeft();
+    }
+    closeRight(){
+        this.tabList.closeRight();
     }
 }
