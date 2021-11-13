@@ -1,4 +1,5 @@
-import { IndexDb, AreaCode } from '@/infrastructure/indexdb';
+import { IndexDb } from '@/infrastructure/indexdb';
+import { AreaCode } from '@/infrastructure/indexdb/AreaCode';
 
 export class AreaCodeService {
     private indexDb: IndexDb;

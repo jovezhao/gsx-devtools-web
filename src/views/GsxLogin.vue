@@ -28,7 +28,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { AreaCodeService } from "@/service/common/AreaCodeService";
+import { AreaCodeService } from "@/domain/common/AreaCodeService";
 
 export default defineComponent({
   setup() {
