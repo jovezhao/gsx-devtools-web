@@ -27,18 +27,31 @@
   </div>
 </template>
 <script lang="ts">
-import router from "@/router";
+import { IndexDb } from "@/infrastructure/indexdb/IndexDb";
 import { defineComponent, ref } from "vue";
+import { AreaCodeService } from "@/component/AreaCodeService";
+
 export default defineComponent({
   setup() {
     const loading = ref<boolean>(false);
 
     const handleOk = () => {
       loading.value = true;
-      setTimeout(() => {
+
+      const service = new AreaCodeService();
+      service.getProvinceList().then((p) => {
+        console.log(p);
         loading.value = false;
-        router.push("/main");
-      }, 1000);
+      });
+      // const db = new IndexDb();
+      // db.areaCodes.add({ code: "0100", name: "哪里", level: 2 });
+      // db.areaCodes
+      //   .where("level")
+      //   .equals(1)
+      //   .toArray()
+      //   .then((p) => {
+      //     console.log(p);
+      //   });
     };
 
     return {
