@@ -1,4 +1,4 @@
-import { TabList } from "@/framework/domain/TabList";
+import { TabList } from "@/domain/base/modle/TabList";
 
 
 

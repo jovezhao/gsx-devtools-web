@@ -27,9 +27,8 @@
   </div>
 </template>
 <script lang="ts">
-import { IndexDb } from "@/infrastructure/indexdb/IndexDb";
 import { defineComponent, ref } from "vue";
-import { AreaCodeService } from "@/component/AreaCodeService";
+import { AreaCodeService } from "@/service/common/AreaCodeService";
 
 export default defineComponent({
   setup() {

@@ -1,7 +1,7 @@
 import { Router } from "vue-router";
 import { Store } from "vuex";
-import { MenuTreeList } from "../domain/MenuTreeList";
-import { TabList } from "../domain/TabList";
+import { MenuTreeList } from "./modle/MenuTreeList";
+import { TabList } from "./modle/TabList";
 
 
 

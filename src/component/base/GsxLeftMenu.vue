@@ -38,8 +38,8 @@ import PubSub from "pubsub-js";
 import { MenuInfo } from "ant-design-vue/lib/menu/src/interface";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { NavService } from "../service/NavService";
-import { MenuTreeList } from "../domain/MenuTreeList";
+import { NavService } from "@/domain/base/NavService";
+import { MenuTreeList } from "@/domain/base/modle/MenuTreeList";
 
 export default defineComponent({
   setup() {

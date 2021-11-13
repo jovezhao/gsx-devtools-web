@@ -8,7 +8,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, reactive } from "vue";
-import { AreaCodeService } from "./AreaCodeService";
+import { AreaCodeService } from "@/domain/common/AreaCodeService";
 interface Option {
   value: string;
   label: string;

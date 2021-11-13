@@ -1,4 +1,5 @@
 import Dexie from "dexie";
+import { AreaCode } from "./AreaCode";
 
 export class IndexDb extends Dexie {
 
@@ -38,9 +39,4 @@ export class IndexDb extends Dexie {
     }
 }
 
-export interface AreaCode {
-    code: string,
-    name: string,
-    level: number
-}
 

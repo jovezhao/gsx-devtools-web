@@ -3,5 +3,5 @@
   <AreaCascader></AreaCascader>
 </template>
 <script setup lang="ts">
-import AreaCascader from "@/component/AreaCascader.vue";
+import AreaCascader from "@/component/common/AreaCascader.vue";
 </script>

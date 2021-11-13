@@ -32,13 +32,13 @@
   </a-layout>
 </template>
 <script setup lang="ts">
-import GsxLeftMenu from "@/framework/components/GsxLeftMenu.vue";
-import GsxHeader from "@/framework/components/GsxHeader.vue";
-import GsxTabs from "@/framework/components/GsxTabs.vue";
+import GsxLeftMenu from "@/component/base/GsxLeftMenu.vue";
+import GsxHeader from "@/component/base/GsxHeader.vue";
+import GsxTabs from "@/component/base/GsxTabs.vue";
 import { ref, computed, Ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { NavService } from "@/framework/service/NavService";
+import { NavService } from "@/domain/base/NavService";
 
 const collapsed = ref(false);
 const collapseIcon: Ref<string> = computed(() =>

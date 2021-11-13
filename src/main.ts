@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
-import router from './infrastructure/router'
+import router from '@/infrastructure/router'
 import store from '@/infrastructure/store';
 
 import Antd from "ant-design-vue";
