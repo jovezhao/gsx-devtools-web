@@ -1,3 +1,4 @@
+import { TabInfo } from "./TabInfo";
 
 export class TabList {
     static defaultKey: string = "00";

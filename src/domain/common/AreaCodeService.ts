@@ -1,5 +1,6 @@
 import { IndexDb } from '@/infrastructure/indexdb';
-import { AreaCode } from '@/infrastructure/indexdb/AreaCode';
+import { AreaCode } from '@/domain/common/modle/AreaCode';
+import { AreaInfo } from './modle/AreaInfo';
 
 export class AreaCodeService {
     private indexDb: IndexDb;
@@ -73,11 +74,4 @@ export class AreaCodeService {
 
 
 
-}
-
-interface AreaInfo {
-    province?: AreaCode;
-    city?: AreaCode;
-    county?: AreaCode;
-    town?: AreaCode;
 }

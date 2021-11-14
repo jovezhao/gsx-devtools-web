@@ -1,4 +1,4 @@
-import { TabInfo } from "@/service/base/domain/TabList";
+import { TabInfo } from './modle/TabInfo'
 import { Router } from "vue-router";
 import { Store } from "vuex";
 import { MenuTreeList } from "./modle/MenuTreeList";

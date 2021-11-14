@@ -1,6 +1,7 @@
 import { menuModule } from './menuModule';
 import { createStore } from 'vuex'
 import { tabMoudle } from './tabMoudle'
+import { userMoudle } from './userModule'
 
 
 export default createStore({
@@ -15,6 +16,7 @@ export default createStore({
   },
   modules: {
     menu: menuModule,
-    tabs: tabMoudle
+    tabs: tabMoudle,
+    user: userMoudle
   }
 })

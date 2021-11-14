@@ -1,5 +1,5 @@
 import Dexie from "dexie";
-import { AreaCode } from "./AreaCode";
+import { AreaCode } from "../../domain/common/modle/AreaCode";
 
 export class IndexDb extends Dexie {
 
