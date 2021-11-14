@@ -1,4 +1,4 @@
-import { MenuItem, MenuTree } from "@/types/MenuTree";
+import { MenuItem, MenuTree } from "@/types/base/MenuTree";
 
  export class MenuTreeList {
     data: Array<MenuTree>;

@@ -1,5 +1,5 @@
 import Dexie from "dexie";
-import { AreaCode } from "../../types/AreaCode";
+import { AreaCode } from "../../types/base/AreaCode";
 
 export class IndexDb extends Dexie {
 
