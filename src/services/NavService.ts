@@ -6,16 +6,24 @@ import { TabList } from '@/domain/base/TabList';
 
 
 
- export class NavService {
-    tabList: TabList;
-    router: Router;
-    menuTreeList:MenuTreeList;
+export class NavService {
+    private tabList: TabList;
+    private router: Router;
+    private menuTreeList: MenuTreeList;
 
     constructor(store: Store<any>, router: Router) {
         this.tabList = store.state.tabs as TabList;
-        this.menuTreeList=store.state.menu as MenuTreeList;
+        this.menuTreeList = store.state.menu as MenuTreeList;
         this.router = router
     }
+
+    getTabList():TabList {
+        return this.tabList;
+    }
+    getMenuTreeList():MenuTreeList{
+        return this.menuTreeList;
+    }
+
     to(key: string) {
         //根据菜单key转向
         //1. 获取key对应的路由，发起路由跳转。
@@ -44,14 +52,14 @@ import { TabList } from '@/domain/base/TabList';
         this.tabList.closeAll();
         // this.to(nextKey)
     }
-    closeOther(){
+    closeOther() {
         this.tabList.closeOther();
         // this.to(nextKey)
     }
-    closeLeft(){
+    closeLeft() {
         this.tabList.closeLeft();
     }
-    closeRight(){
+    closeRight() {
         this.tabList.closeRight();
     }
 }

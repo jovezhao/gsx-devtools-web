@@ -66,7 +66,7 @@ export default defineComponent({
     const store = useStore();
     const router = useRouter();
     const nav: NavService = new NavService(store, router);
-    const tabList = nav.tabList
+    const tabList = nav.getTabList()
 
     const onEdit = (targetKey: string, action: string) => {
       if (action == "remove") {

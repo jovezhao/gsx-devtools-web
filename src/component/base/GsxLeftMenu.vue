@@ -40,26 +40,30 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { NavService } from "@/services/NavService";
 import { MenuTreeList } from "@/domain/base/MenuTreeList";
+import { MenuTree } from "@/types/base/MenuTree";
 
 export default defineComponent({
   setup() {
     const moduleKey = ref("01");
     const router = useRouter();
     const store = useStore();
-    const navUtils:NavService = new NavService(store, router);
+    const navService: NavService = new NavService(store, router);
+
+
 
     PubSub.subscribe("moduleChanged", (message: string, value: string) => {
       moduleKey.value = value;
+      // menuTree.value = navService.getMenuTreeList().getMenuTree(value);
     });
 
     const menuTree = computed(() => {
-      return (store.state.menu as MenuTreeList).getMenuTree(moduleKey.value);
+      return navService.getMenuTreeList().getMenuTree(moduleKey.value);
     });
 
     const menuItemClick = (menu: MenuInfo) => {
       //根据key查询route获得name，title信息，并且加入tabs信息
 
-      navUtils.to(menu.key.toLocaleString());
+      navService.to(menu.key.toLocaleString());
     };
 
     return {
