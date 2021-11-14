@@ -1,4 +1,4 @@
-import { MenuTreeList } from "@/domain/base/modle/MenuTreeList";
+import { MenuTreeList } from "@/domain/base/MenuTreeList";
 
 const menuData: Array<MenuItem> = [
     {

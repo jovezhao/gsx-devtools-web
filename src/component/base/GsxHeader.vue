@@ -29,7 +29,7 @@
 import { defineComponent, ref, watch } from "vue";
 import PubSub from "pubsub-js";
 import { useStore } from "vuex";
-import { MenuTreeList } from "@/domain/base/modle/MenuTreeList";
+import { MenuTreeList } from "@/domain/base/MenuTreeList";
 
 export default defineComponent({
   setup() {

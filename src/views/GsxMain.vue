@@ -38,7 +38,7 @@ import GsxTabs from "@/component/base/GsxTabs.vue";
 import { ref, computed, Ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { NavService } from "@/domain/base/NavService";
+import { NavService } from "@/services/NavService";
 
 const collapsed = ref(false);
 const collapseIcon: Ref<string> = computed(() =>

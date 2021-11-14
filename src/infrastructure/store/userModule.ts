@@ -1,4 +1,4 @@
-import { UserInfo } from '@/domain/common/modle/UserInfo';
+import { UserInfo } from '@/types/UserInfo';
 
 
 

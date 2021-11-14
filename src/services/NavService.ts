@@ -1,8 +1,8 @@
-import { TabInfo } from './modle/TabInfo'
+import { TabInfo } from '../types/TabInfo'
 import { Router } from "vue-router";
 import { Store } from "vuex";
-import { MenuTreeList } from "./modle/MenuTreeList";
-import { TabList } from "./modle/TabList";
+import { MenuTreeList } from "../domain/base/MenuTreeList";
+import { TabList } from '@/domain/base/TabList';
 
 
 

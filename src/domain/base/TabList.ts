@@ -1,4 +1,4 @@
-import { TabInfo } from "./TabInfo";
+import { TabInfo } from "../../types/TabInfo";
 
 export class TabList {
     static defaultKey: string = "00";

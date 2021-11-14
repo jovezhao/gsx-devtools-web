@@ -1,4 +1,4 @@
- interface MenuItem {
+export interface MenuItem {
     title: string;
     key: string;
     icon?: string;
@@ -6,7 +6,7 @@
     parentKey?: string
     fixed?: boolean
 }
- interface MenuTree extends MenuItem {
+ export interface MenuTree extends MenuItem {
     children?: Array<MenuTree>
     parent?: MenuTree
 }

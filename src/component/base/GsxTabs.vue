@@ -56,7 +56,7 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { MenuInfo } from "ant-design-vue/lib/menu/src/interface";
-import { NavService } from "@/domain/base/NavService";
+import { NavService } from "@/services/NavService";
 
 export default defineComponent({
   components: {

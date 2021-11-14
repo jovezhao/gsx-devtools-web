@@ -1,6 +1,6 @@
 import { IndexDb } from '@/infrastructure/indexdb';
-import { AreaCode } from '@/domain/common/modle/AreaCode';
-import { AreaInfo } from './modle/AreaInfo';
+import { AreaCode } from '@/types/AreaCode';
+import { AreaInfo } from '@/types/AreaInfo';
 
 export class AreaCodeService {
     private indexDb: IndexDb;
