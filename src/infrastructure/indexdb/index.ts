@@ -7,7 +7,7 @@ export class IndexDb extends Dexie {
 
     constructor() {
         super("IndexDB");
-        this.version(3).stores({
+        this.version(6).stores({
             areaCodes: "code,level"
         })
             .upgrade(tx => {
@@ -23,6 +23,10 @@ export class IndexDb extends Dexie {
                         { code: "440104001000", name: "洪桥街道", level: 4 },
                         { code: "440104003000", name: "北京街道", level: 4 },
                         { code: "440104011000", name: "东山街道", level: 4 },
+                        { code: "440200000000", name: "深圳市", level: 2 },
+                        { code: "440201000000", name: "宝安区", level: 3 },
+                        { code: "440201001000", name: "aa街道", level: 4 },
+
 
                     ] as AreaCode[]
                 }
