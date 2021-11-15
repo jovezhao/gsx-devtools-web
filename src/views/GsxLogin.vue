@@ -27,30 +27,25 @@
   </div>
 </template>
 <script lang="ts">
+import { NavService } from "@/services/NavService";
 import { defineComponent, ref } from "vue";
-import { AreaCodeService } from "@/services/AreaCodeService";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default defineComponent({
   setup() {
     const loading = ref<boolean>(false);
+    const store = useStore();
+    const router = useRouter();
+    const navService: NavService = new NavService(store, router);
 
     const handleOk = () => {
       loading.value = true;
 
-      const service = new AreaCodeService();
-      service.getProvinceList().then((p) => {
-        console.log(p);
+      setTimeout(() => {
         loading.value = false;
-      });
-      // const db = new IndexDb();
-      // db.areaCodes.add({ code: "0100", name: "哪里", level: 2 });
-      // db.areaCodes
-      //   .where("level")
-      //   .equals(1)
-      //   .toArray()
-      //   .then((p) => {
-      //     console.log(p);
-      //   });
+        navService.to("home");
+      }, 1000);
     };
 
     return {
